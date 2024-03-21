@@ -2,61 +2,6 @@
 <html>
 <head>
     <title>Web-to-Case with File Upload</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        async function createCaseWithAttachment() {
-            const caseData = {
-                'Subject': document.getElementById('subject').value,
-                'Description': document.getElementById('description').value,
-                // Add other case fields as needed
-            };
-
-            const fileInput = document.getElementById('file');
-            const file = fileInput.files[0];
-            const fileData = new FormData();
-            fileData.append('file', file, file.name);
-            
-
-            try {
-                // Create case first
-                const caseResponse = await axios.post(
-                    'https://d5i00000cynaleal-dev-ed.develop.lightning.force.com/services/data/v54.0/sobjects/Case/',
-                    caseData,
-                    {
-                        headers: {
-                            'Authorization': 'Bearer 6Cel800D5i00000CYnAl8885i0000001xUBrLQmobBePGGwx1vZOUZH1YEkSrzkN2Dr3J7IkMRwnwJzHZqh958Q0gzpPS1g7eqkyDDb00xM',
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                );
-
-                const caseId = caseResponse.data.id;
-
-                // Then attach file to case
-                const attachmentResponse = await axios.post(
-                    `https://d5i00000cynaleal-dev-ed.develop.lightning.force.com/services/data/v54.0/sobjects/Attachment/`,
-                    fileData,
-                    {
-                        headers: {
-                            'Authorization': 'Bearer 6Cel800D5i00000CYnAl8885i0000001xUBrLQmobBePGGwx1vZOUZH1YEkSrzkN2Dr3J7IkMRwnwJzHZqh958Q0gzpPS1g7eqkyDDb00xM',
-                            'Content-Type': 'multipart/form-data'
-                        },
-                        params: {
-                            parentId: caseId,
-                            'Content-Type': file.type,
-                            Name: file.name
-                        }
-                    }
-                );
-
-                console.log('Attachment created successfully:',attachmentResponse);
-                alert('Case and attachment created successfully!');
-            } catch (error) {
-                console.error('Error creating case or attachment:');
-                alert('Error creating case or attachment: ' + error);
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>Web-to-Case with File Upload</h1>
@@ -81,5 +26,66 @@
 
         <button type="submit">Submit</button>
     </form>
+
+    <script>
+        async function createCaseWithAttachment() {
+            const caseData = {
+                'Subject': document.getElementById('subject').value,
+                'Description': document.getElementById('description').value,
+                // Add other case fields as needed
+            };
+
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            const fileData = new FormData();
+            fileData.append('file', file, file.name);
+
+            try {
+                // Create case first
+                const caseResponse = await fetch(
+                    'https://d5i00000cynaleal-dev-ed.develop.lightning.force.com/services/data/v54.0/sobjects/Case/',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(caseData)
+                    }
+                );
+                if (!caseResponse.ok) {
+                    throw new Error('Failed to create case');
+                }
+
+                const caseResponseData = await caseResponse.json();
+                const caseId = caseResponseData.id;
+
+                // Then attach file to case
+                fileData.set('parentId', caseId);
+                fileData.set('Name', file.name);
+                fileData.set('Content-Type', file.type);
+
+                const attachmentResponse = await fetch(
+                    `https://d5i00000cynaleal-dev-ed.develop.lightning.force.com/services/data/v54.0/sobjects/Attachment/`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+                        },
+                        body: fileData
+                    }
+                );
+                if (!attachmentResponse.ok) {
+                    throw new Error('Failed to attach file to case');
+                }
+
+                console.log('Case and attachment created successfully');
+                alert('Case and attachment created successfully!');
+            } catch (error) {
+                console.error('Error creating case or attachment:', error);
+                alert('Error creating case or attachment. Please check the console for details.');
+            }
+        }
+    </script>
 </body>
 </html>
