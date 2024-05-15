@@ -1,0 +1,95 @@
+{
+  "Sheet1": [
+    {
+      "tmk_cd": 10,
+      "tmk_nm": "COKE1",
+      "tmk_abbr_nm": "C1",
+      "tmk_shrt_nm": "CC1",
+      "actv_dt": 34700,
+      "mfgr_cd": 1
+    },
+    {
+      "tmk_cd": 11,
+      "tmk_nm": "COKE2",
+      "tmk_abbr_nm": "C2",
+      "tmk_shrt_nm": "CC2",
+      "actv_dt": 34701,
+      "inac_dt": 35587,
+      "mfgr_cd": 3
+    },
+    {
+      "tmk_cd": 12,
+      "tmk_nm": "COKE3",
+      "tmk_abbr_nm": "C3",
+      "tmk_shrt_nm": "CC3",
+      "actv_dt": 34702,
+      "inac_dt": 35588,
+      "mfgr_cd": 4
+    },
+    {
+      "tmk_cd": 13,
+      "tmk_nm": "COKE4",
+      "tmk_abbr_nm": "C4",
+      "tmk_shrt_nm": "CC4",
+      "actv_dt": 34703,
+      "inac_dt": 35589,
+      "mfgr_cd": 2
+    },
+    {
+      "tmk_cd": 14,
+      "tmk_nm": "COKE5",
+      "tmk_abbr_nm": "C5",
+      "tmk_shrt_nm": "CC5",
+      "actv_dt": 34704,
+      "mfgr_cd": 4
+    },
+    {
+      "tmk_cd": 15,
+      "tmk_nm": "COKE6",
+      "tmk_abbr_nm": "C6",
+      "tmk_shrt_nm": "CC6",
+      "actv_dt": 34705,
+      "mfgr_cd": 2
+    },
+    {
+      "tmk_cd": 16,
+      "tmk_nm": "COKE7",
+      "tmk_abbr_nm": "C7",
+      "tmk_shrt_nm": "CC7",
+      "actv_dt": 34706,
+      "mfgr_cd": 1
+    },
+    {
+      "tmk_cd": 17,
+      "tmk_nm": "COKE8",
+      "tmk_abbr_nm": "C8",
+      "tmk_shrt_nm": "CC8",
+      "actv_dt": 34707,
+      "mfgr_cd": 3
+    },
+    {
+      "tmk_cd": 18,
+      "tmk_nm": "COKE9",
+      "tmk_abbr_nm": "C9",
+      "tmk_shrt_nm": "CC9",
+      "actv_dt": 34708,
+      "mfgr_cd": 2
+    },
+    {
+      "tmk_cd": 19,
+      "tmk_nm": "COKE10",
+      "tmk_abbr_nm": "C10",
+      "tmk_shrt_nm": "CC10",
+      "actv_dt": 34709,
+      "mfgr_cd": 4
+    },
+    {
+      "tmk_cd": 20,
+      "tmk_nm": "COKE11",
+      "tmk_abbr_nm": "C11",
+      "tmk_shrt_nm": "CC11",
+      "actv_dt": 34710,
+      "mfgr_cd": 1
+    }
+  ]
+}

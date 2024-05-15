@@ -1,0 +1,32 @@
+{
+  "Sheet1": [
+    {
+      "Active_Inactive__c": "A ",
+      "Manufacturer_ID__c": 1,
+      "Name": "TEST1",
+      "Active_Date__c": 38477,
+      "Inactive_Date__c": 43466
+    },
+    {
+      "Active_Inactive__c": "A ",
+      "Manufacturer_ID__c": 2,
+      "Name": "TEST2",
+      "Active_Date__c": 38478,
+      "Inactive_Date__c": 43467
+    },
+    {
+      "Active_Inactive__c": "A ",
+      "Manufacturer_ID__c": 3,
+      "Name": "TEST3",
+      "Active_Date__c": 38479,
+      "Inactive_Date__c": 43468
+    },
+    {
+      "Active_Inactive__c": "A ",
+      "Manufacturer_ID__c": 4,
+      "Name": "TEST4",
+      "Active_Date__c": 38480,
+      "Inactive_Date__c": 43469
+    }
+  ]
+}
